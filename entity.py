@@ -1,28 +1,40 @@
 # for entity set up
- import random 
+import random 
 envionment_list = ['tree', 'rock', 'river']
 
-class Titles:
+class Tile:
+    def __init__(self, x, y, env):
+        self.x = x
+        self.y = y
+        self.env = env
 
-    def __init__(self, max_x, max_y):
-        if not isinstance(max_x, int):
+
+    def isWithinRenderDistance(self):
+        pass
+
+class Map:
+
+    def __init__(self, size_x, size_y):
+        if not isinstance(size_x, int):
             raise TypeError('x must be integer')
-        if not isinstance(max_y, int):
+        if not isinstance(size_y, int):
             raise TypeError('y must be integer')
+        self.size_x = size_x
+        self.size_y = size_y
+        self.list_map = []
+
+    def createRandomEnvMap(self):
         list_map = []
 
-        y = 0
-        while y < max_y:
-            x = 0
-            while x < max_x:
-                list_map.append([x, y, random.choice(envionment_list)])
-                x +=1
-            list_map.append([x, y, random.choice(envionment_list)])
-            y +=1
-        
+        for y in range(self.size_y):
+            list_map.append([])
+            for x in range(self.size_x):
+                list_map[y].append( Tile(x, y, random.choice(envionment_list) ) )                  
         self.list_map = list_map
+
+        return self.list_map
         
- class Player:
+class Player:
     
     def __init__(self, x, y):
         if not isinstance(x, int):
@@ -36,4 +48,3 @@ class Titles:
     def return_position(self):    
         return([self.x, self.y])
 
-Player(8, 9).return_position()
