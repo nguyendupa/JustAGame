@@ -7,7 +7,7 @@ pygame.init()
 
 # Some Global Config
 RECT_TILE_WIDTH_COUNT = RECT_TILE_HEIGHT_COUNT = 8
-RECT_WIDTH_PIXEL = RECT_HEIGHT_PIXEL = 4
+RECT_WIDTH_PIXEL = RECT_HEIGHT_PIXEL = 1
 
 class Color(Enum):
     WHITE = [255, 255, 255]
@@ -94,12 +94,12 @@ class DisplayTool:
 
 
 # Initialize display 
-gameDisplay = pygame.display.set_mode((800,600))
+gameDisplay = pygame.display.set_mode((800,800))
 displayTool = DisplayTool(gameDisplay)
 
 # Initialize entity
-MAX_X = 20
-MAX_Y = 20
+MAX_X = 100
+MAX_Y = 100
 map_1 = Map(MAX_X, MAX_Y)
 print(map_1.createRandomEnvMap())
 
