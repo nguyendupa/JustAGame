@@ -8,7 +8,7 @@ class Tile:
         self.y = y
         self.env = env
 
-
+    #need to double check
     def isWithinRenderDistance(self):
         pass
 
